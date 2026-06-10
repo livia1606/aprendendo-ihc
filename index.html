@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aprendendo IHC</title>
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+  <!-- HEADER -->
+
+  <header class="header">
+    <div class="container">
+      <nav class="nav">
+        <ul class="menu">
+          <li><a href="#inicio">Início</a></li>
+          <li><a href="#conteudo">Conteúdo</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+
+  <section id="inicio" class="hero">
+    <div class="hero-content">
+      <h1>Aprenda Interação Humano-Computador</h1>
+      <p>Conteúdos organizados, videoaulas e exercícios para facilitar seu aprendizado.</p>
+      <a href="#conteudo" class="btn">Explorar conteúdos</a>
+    </div>
+  </section>
+
+  <!-- CONTEÚDOS -->
+
+  <section id="conteudo" class="section alt">
+    <div class="container">
+
+      <h2>Conteúdos</h2>
+
+      <div class="cards">
+
+        <div class="card open-modal"
+          data-title="Fundamentos de IHC"
+          data-video="videos/fundamentos.mp4"
+          data-slide="slides/fundamentos.pdf">
+
+          <i class="fa-solid fa-book"></i>
+          <h3>Fundamentos de IHC</h3>
+          <p>Conceitos básicos da interação entre usuários e sistemas.</p>
+        </div>
+
+        <div class="card open-modal"
+          data-title="Usabilidade"
+          data-video="videos/usabilidade.mp4"
+          data-slide="slides/usabilidade.pdf">
+
+          <i class="fa-solid fa-user-check"></i>
+          <h3>Usabilidade</h3>
+          <p>Melhore a interação com sistemas.</p>
+        </div>
+
+        <div class="card open-modal"
+          data-title="Design de Interfaces"
+          data-video="interfaces.mp4"
+          data-slide="slides/interfaces.pdf"
+          data-exercicios="listas/lista1.pdf">
+
+          <i class="fa-solid fa-pen-ruler"></i>
+          <h3>Design de Interfaces</h3>
+          <p>Interfaces claras e organizadas.</p>
+        </div>
+
+        <div class="card open-modal"
+          data-title="UX"
+          data-video="ux.mp4"
+          data-slide="slides/ux.pdf">
+
+          <i class="fa-solid fa-face-smile"></i>
+          <h3>UX</h3>
+          <p>Experiência do usuário na prática.</p>
+        </div>
+
+        <div class="card open-modal"
+          data-title="Acessibilidade"
+          data-video="acessibilidade.mp4"
+          data-slide="slides/acessibilidade.pdf">
+
+          <i class="fa-solid fa-universal-access"></i>
+          <h3>Acessibilidade</h3>
+          <p>Design inclusivo para todos.</p>
+        </div>
+
+        <div class="card open-modal"
+          data-title="Heurísticas"
+          data-video="heuristicas.mp4"
+          data-slide="slides/heuristica.pdf"
+          data-exercicios="listas/lista2.pdf">
+
+          <i class="fa-solid fa-lightbulb"></i>
+          <h3>Heurísticas</h3>
+          <p>Princípios de usabilidade.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTATO -->
+
+  <section id="contato" class="section">
+    <div class="container">
+
+      <h2>Contato</h2>
+
+      <div class="team">
+
+        <div class="member">
+          <h3>Lívia Pontes Argenton</h3>
+          <div class="social">
+            <a href="https://github.com/livia1606" target="_blank">
+              <i class="fa-brands fa-github"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/l%C3%ADvia-pontes-argenton-52a978333/" target="_blank">
+              <i class="fa-brands fa-linkedin"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="member">
+          <h3>Raissa Albuquerque Diniz</h3>
+          <div class="social">
+            <a href="https://github.com/Raissaalbuquerque02" target="_blank">
+              <i class="fa-brands fa-github"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/raissa-albuquerque-diniz-156a60371/" target="_blank">
+              <i class="fa-brands fa-linkedin"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+
+  <footer class="footer">
+    <p>© 2026 - Projeto Certificadora De Competência Comum</p>
+  </footer>
+
+
+<!-- MODAL -->
+
+<div class="modal-overlay" id="modal">
+  <div class="modal-content">
+    <button class="close-modal" id="closeModal">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+
+    <h2 id="modalTitle"></h2>
+
+    <!-- ÁREA DE EXIBIÇÃO -->
+
+    <div class="media-container">
+
+      <video controls class="modal-video" id="modalVideo" style="display:none;">
+        <source src="" type="video/mp4">
+      </video>
+
+      <iframe
+        id="modalSlide"
+        class="modal-slide"
+        style="display:none;"
+        width="100%"
+        height="550">
+      </iframe>
+
+    </div>
+
+    <!-- BOTÕES -->
+
+    <div class="modal-buttons">
+
+      <button id="videoBtn" class="modal-btn" type="button">
+        <i class="fa-solid fa-play"></i>
+        Ver Videoaula
+      </button>
+
+      <button id="slideBtn" class="modal-btn" type="button">
+        <i class="fa-solid fa-file-pdf"></i>
+        Ver Slides
+      </button>
+
+      <button id="listaBtn" class="modal-btn" type="button">
+        <i class="fa-solid fa-list-check"></i>
+        Lista de Exercícios
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
+
+<script>
+
+window.addEventListener("scroll", () => {
+  document.querySelector(".header")
+    .classList.toggle("scrolled", window.scrollY > 50);
+});
+
+const cards = document.querySelectorAll(".open-modal");
+const modal = document.getElementById("modal");
+const closeModal = document.getElementById("closeModal");
+
+const modalTitle = document.getElementById("modalTitle");
+
+const videoBtn = document.getElementById("videoBtn");
+const slideBtn = document.getElementById("slideBtn");
+const listaBtn = document.getElementById("listaBtn");
+
+const modalVideo = document.getElementById("modalVideo");
+const modalSlide = document.getElementById("modalSlide");
+
+let videoAtual = "";
+let slideAtual = "";
+let listaAtual = "";
+
+cards.forEach(card => {
+
+  card.addEventListener("click", () => {
+
+    modal.classList.add("active");
+
+    modalTitle.textContent = card.dataset.title;
+
+    videoAtual = card.dataset.video;
+    slideAtual = card.dataset.slide;
+    listaAtual = card.dataset.exercicios || "";
+
+    modalVideo.style.display = "none";
+    modalSlide.style.display = "none";
+
+    modalVideo.pause();
+
+    if (listaAtual) {
+      listaBtn.style.display = "flex";
+    } else {
+      listaBtn.style.display = "none";
+    }
+
+  });
+
+});
+
+videoBtn.addEventListener("click", () => {
+
+  modalSlide.style.display = "none";
+  modalVideo.style.display = "block";
+  modalVideo.querySelector("source").src = videoAtual;
+  modalVideo.load();
+
+});
+
+slideBtn.addEventListener("click", () => {
+
+  modalVideo.pause();
+  modalVideo.style.display = "none";
+  modalSlide.style.display = "block";
+  modalSlide.src = slideAtual;
+
+});
+
+listaBtn.addEventListener("click", () => {
+
+  modalVideo.pause();
+  modalVideo.style.display = "none";
+  modalSlide.style.display = "block";
+  modalSlide.src = listaAtual;
+
+});
+
+function fecharModal() {
+
+  modal.classList.remove("active");
+  modalVideo.pause();
+  modalVideo.style.display = "none";
+  modalSlide.style.display = "none";
+  modalSlide.src = "";
+
+}
+
+closeModal.addEventListener("click", fecharModal);
+
+window.addEventListener("click", (e) => {
+
+  if (e.target === modal) {
+    fecharModal();
+  }
+
+});
+
+document.addEventListener("keydown", (e) => {
+
+  if (e.key === "Escape") {
+    fecharModal();
+  }
+
+});
+
+</script>
